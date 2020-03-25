@@ -1,0 +1,23 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["airbnb", "plugin:react/recommended"],
+  "env": {
+    "node": true,
+    "es6": true,
+    "commonjs": true,
+    "browser": true,
+    "jest": true
+  },
+  "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module",
+      "ecmaFeatures": {
+          "jsx": true,
+          "modules": true,
+          "allowImportExportEverywhere": true
+      }
+    },
+  "rules": {
+     "react/jsx-filename-extension": [1, {"extensions": [".js", ".jsx"]}]
+  }
+}
