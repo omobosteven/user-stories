@@ -1,23 +1,31 @@
 import React from 'react';
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+  Route, Switch,
+} from 'react-router-dom';
 
-import App from '../components/App';
+import LoginComponent from '../components/LoginComponent';
+import CreateStoryComponent from '../components/CreateStoryComponent';
+import AllStoriesComponent from '../components/AllStoriesComponent';
+import UserStoriesComponent from '../components/UserStoriesComponent';
 
-const AppRouter = () => {
-  return (
-    <Router>
-      <div>
-        <Route exact path="/">
-          <App />
-        </Route>
-      </div>
-    </Router>
-  );
-};
+const AppRouter = () => (
+  <Router>
+    <Switch>
+      <Route exact path="/">
+        <LoginComponent />
+      </Route>
+      <Route path="/createStory">
+        <CreateStoryComponent />
+      </Route>
+      <Route path="/getStories">
+        <UserStoriesComponent />
+      </Route>
+      <Route path="/admin/getStories">
+        <AllStoriesComponent />
+      </Route>
+    </Switch>
+  </Router>
+);
 
 export default AppRouter;

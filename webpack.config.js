@@ -4,7 +4,7 @@ module.exports = {
   devtool: 'eval-source-map',
   entry: './src/index.js',
   output: {
-    path: __dirname + '/dist',
+    path: `${__dirname}/dist`,
     publicPath: '/',
     filename: 'bundle.js',
   },
@@ -15,8 +15,11 @@ module.exports = {
         exclude: /node_moudules/,
         use: [
           { loader: 'babel-loader' },
-          { loader: 'eslint-loader' },
         ],
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
@@ -28,6 +31,7 @@ module.exports = {
   ],
   devServer: {
     contentBase: './dist',
+    historyApiFallback: true,
     hot: true,
   },
 };
