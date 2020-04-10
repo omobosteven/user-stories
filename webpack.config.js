@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   devtool: 'eval-source-map',
@@ -6,7 +7,7 @@ module.exports = {
   output: {
     path: `${__dirname}/dist`,
     publicPath: '/',
-    filename: 'bundle.js',
+    filename: '[hash].min.js',
   },
   module: {
     rules: [
@@ -28,10 +29,14 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      filename: 'index.html',
+    })
   ],
   devServer: {
-    contentBase: './dist',
     historyApiFallback: true,
     hot: true,
+    port: 3001,
   },
 };

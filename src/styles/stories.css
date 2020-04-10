@@ -1,0 +1,60 @@
+.story-accepted,
+.story-rejected,
+.story-waiting {
+    color: #FDFDFF;
+    user-select: none;
+}
+
+.stories-section {
+    width: 100%;
+    overflow-x: scroll;
+}
+
+.stories-table {
+    margin-top: 60px;
+    width: 100%;
+}
+
+.story-waiting,
+.story-waiting .ant-table-column-sort {
+    background-color: #3C3C3A;
+}
+
+.story-waiting:hover,
+.story-waiting .ant-table-column-sort:hover {
+    background-color: #2b2b2a;
+}
+
+.story-accepted,
+.story-accepted .ant-table-column-sort {
+    background-color: #469240;
+}
+
+.story-accepted:hover,
+.story-accepted .ant-table-column-sort:hover{
+    background: #397935;
+}
+
+.story-rejected,
+.story-rejected .ant-table-column-sort {
+    background-color: #e0393a;
+}
+
+.story-rejected:hover,
+.story-rejected .ant-table-column-sort:hover {
+    background-color: #c33132;
+}
+
+.stories-table thead tr th {
+    color: #b74f00;
+}
+
+.stories-table .ant-table-column-sorter-up.active,
+.stories-table .ant-table-column-sorter-down.active,
+a {
+    color: #df6400;
+}
+
+.stories-table .ant-table .ant-table-tbody > tr:hover > td {
+    background: unset;
+}
