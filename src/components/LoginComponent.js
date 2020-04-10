@@ -7,6 +7,7 @@ import {
 } from 'antd';
 import PropTypes from 'prop-types';
 import doLoginUser from '../actions/login';
+import '../styles/loginPage.css';
 
 const LoginComponent = ({ isLoggedIn, isAdmin, onLoginUser }) => {
   const {
@@ -18,23 +19,41 @@ const LoginComponent = ({ isLoggedIn, isAdmin, onLoginUser }) => {
   };
 
   if (isLoggedIn) {
-    const navigateToPage = isAdmin ? '/admin/getStories' : '/createStory';
+    const navigateToPage = isAdmin ? '/stories' : '/create-story';
     return <Redirect to={navigateToPage} />;
   }
 
   return (
-    <Card style={{ width: 300 }}>
+    <Card title="Login Form" bordered={false} style={{ width: 350 }} className="login-form-card">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Controller as={<Input placeholder="Enter Your Email" type="email" />} name="email" control={control} defaultValue="" />
-        <Controller as={<Input.Password placeholder="Enter Your Password" />} name="password" control={control} defaultValue="" />
-        <br />
-        <Button htmlType="submit">Login</Button>
-        <br />
-        <Controller as={<Switch />} name="admin" control={control} />
-        <span>Admin</span>
+        <Controller
+          as={<Input placeholder="Email" type="email" />}
+          name="email"
+          control={control}
+        />
+        <Controller
+          as={<Input.Password placeholder="Password" />}
+          name="password"
+          control={control}
+        />
+
+        <Button htmlType="submit" className="login-btn">SIGN IN</Button>
+        <Controller
+          as={<Switch checked={false} />}
+          name="isAdmin"
+          control={control}
+          label="Admin"
+        />
+        <span className="toggle-name">Admin</span>
       </form>
     </Card>
   );
+};
+
+LoginComponent.propTypes = {
+  isLoggedIn: PropTypes.bool.isRequired,
+  isAdmin: PropTypes.bool.isRequired,
+  onLoginUser: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
@@ -45,11 +64,5 @@ const mapStateToProps = (state) => ({
   isAdmin: state.userState.isAdmin,
   isLoggedIn: state.userState.isLoggedIn,
 });
-
-LoginComponent.propTypes = {
-  isLoggedIn: PropTypes.bool.isRequired,
-  isAdmin: PropTypes.bool.isRequired,
-  onLoginUser: PropTypes.func.isRequired,
-};
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginComponent);

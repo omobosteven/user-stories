@@ -1,29 +1,26 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
-  Route, Switch,
+  BrowserRouter as Router, Route, Switch,
 } from 'react-router-dom';
+import AuthRoute from '../utils/AuthRoute';
 
+import HeaderComponent from '../components/HeaderComponent';
 import LoginComponent from '../components/LoginComponent';
 import CreateStoryComponent from '../components/CreateStoryComponent';
-import AllStoriesComponent from '../components/AllStoriesComponent';
-import UserStoriesComponent from '../components/UserStoriesComponent';
+import StoriesComponent from '../components/StoriesComponent';
+import StoryComponent from '../components/StoryComponent';
 
 const AppRouter = () => (
   <Router>
+    <HeaderComponent />
+
     <Switch>
       <Route exact path="/">
         <LoginComponent />
       </Route>
-      <Route path="/createStory">
-        <CreateStoryComponent />
-      </Route>
-      <Route path="/getStories">
-        <UserStoriesComponent />
-      </Route>
-      <Route path="/admin/getStories">
-        <AllStoriesComponent />
-      </Route>
+      <AuthRoute path="/create-story" component={CreateStoryComponent} />
+      <AuthRoute exact path="/stories" component={StoriesComponent} />
+      <AuthRoute path="/stories/:storyId" component={StoryComponent} />
     </Switch>
   </Router>
 );

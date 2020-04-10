@@ -1,0 +1,64 @@
+.login-form-card {
+    margin: 60px auto 0;
+}
+
+.login-form-card .ant-card-head-title {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #3C3C3A;
+}
+
+.login-form-card .ant-card-head {
+    border-bottom: 1px solid rgba(255, 98, 0, 0.44);
+}
+
+.login-form-card .ant-input[type='email'],
+.login-form-card .ant-input-password {
+    height: 50px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    color: #3C3C3A;
+}
+
+.login-form-card .ant-input[type='email']:hover,
+.login-form-card .ant-input-password:hover {
+    border-color: rgba(255, 98, 0, 0.44);
+}
+
+.login-form-card .ant-input[type='email']:focus,
+.login-form-card .ant-input-affix-wrapper-focused {
+    border-color: rgba(255, 98, 0, 0.44);
+    box-shadow: 0 0 0 2px rgba(255, 98, 0, 0.2);
+}
+
+.login-form-card .ant-input-suffix {
+    margin: auto 4px;
+}
+
+.login-form-card .login-btn {
+    color: #FDFDFF;
+    background-color: #FF6600;
+    border-color: #FDFDFF;
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    padding: 4px 15px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.login-form-card .login-btn:hover {
+    box-shadow: 0 0 5px 2px rgba(255, 98, 0, 0.2);
+}
+
+.login-form-card .ant-switch-checked {
+    background-color: #df6400;
+}
+
+.login-form-card .toggle-name {
+    color: #df6400;
+    display: inline-block;
+    font-weight: 600;
+    margin-left: 5px;
+    vertical-align: middle;
+}

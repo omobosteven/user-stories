@@ -1,0 +1,71 @@
+.story-form-card {
+    margin: 60px auto 0;
+}
+
+.story-form-card .ant-card-head-title {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #3C3C3A;
+}
+
+.story-form-card .ant-card-head {
+    border-bottom: 1px solid rgba(255, 98, 0, 0.44);
+}
+
+.story-form-card .form-input {
+    margin-bottom: 15px;
+}
+
+.story-form-card .ant-input[name='description'] {
+    height: 80px;
+    resize: none;
+}
+
+.story-form-card .ant-input[type='text'] {
+    height: 40px;
+    border-radius: 5px;
+    color: #3C3C3A;
+}
+
+.story-form-card .form-dropdowns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.story-form-card .ant-input-number,
+.story-form-card .ant-select {
+    display: block;
+}
+
+.story-form-card .ant-input[type='text']:hover,
+.story-form-card .ant-input[name='description']:hover,
+.story-form-card .ant-input-number:hover {
+    border-color: rgba(255, 98, 0, 0.44);
+}
+
+.story-form-card .ant-input:focus,
+.story-form-card .ant-input-number:focus {
+    border-color: rgba(255, 98, 0, 0.44);
+    box-shadow: 0 0 0 2px rgba(255, 98, 0, 0.2);
+}
+
+
+.story-form-card .ant-btn {
+    color: #FDFDFF;
+    background-color: #FF6600;
+    border-color: #FDFDFF;
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    padding: 4px 15px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.story-form-card .ant-btn:hover {
+    box-shadow: 0 0 5px 2px rgba(255, 98, 0, 0.2);
+}
+
+.story-form-card .form-error {
+    color: #FF4142;
+}

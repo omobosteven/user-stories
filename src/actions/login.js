@@ -1,20 +1,17 @@
-import axios from 'axios';
+import { apiBaseurl, saveTokenToBrowserCookies } from '../utils/main';
 
-import { CURRENT_USER_SET } from '../constant/actionTypes';
+import { USER_SET_CURRENT } from '../constant/actionTypes';
 
 export const setCurrentUser = (user) => ({
-  type: CURRENT_USER_SET,
+  type: USER_SET_CURRENT,
   user,
 });
 
-const baseUrl = 'https://test-archimides.free.beeceptor.com';
-
 const doLoginUser = (payload) => async (dispatch) => {
-  const userUrl = payload.admin ? '/api/admin-login' : '/api/login';
-  const { admin, ...userPayload } = payload;
+  const { data } = await apiBaseurl.post('/signin', payload);
 
-  const { data } = await axios.post(`${baseUrl}${userUrl}`, userPayload);
-
+  saveTokenToBrowserCookies(data.token);
+  delete data.token;
   dispatch(setCurrentUser(data));
 };
 
