@@ -9,6 +9,7 @@ import LoginComponent from '../components/LoginComponent';
 import CreateStoryComponent from '../components/CreateStoryComponent';
 import StoriesComponent from '../components/StoriesComponent';
 import StoryComponent from '../components/StoryComponent';
+import NotFoundComponent from '../components/NotFoundComponent';
 
 const AppRouter = () => (
   <Router>
@@ -21,6 +22,9 @@ const AppRouter = () => (
       <AuthRoute path="/create-story" component={CreateStoryComponent} />
       <AuthRoute exact path="/stories" component={StoriesComponent} />
       <AuthRoute path="/stories/:storyId" component={StoryComponent} />
+      <Route>
+        <NotFoundComponent />
+      </Route>
     </Switch>
   </Router>
 );

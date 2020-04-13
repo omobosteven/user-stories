@@ -6,6 +6,7 @@ import {
 } from 'antd';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import { doCreateStory } from '../actions/story';
 import '../styles/createStory.css';
@@ -18,7 +19,14 @@ const CreateStoryComponent = ({ onCreateStory }) => {
   const history = useHistory();
 
   const onSubmit = (data) => {
-    onCreateStory(data).then(() => history.push('/getStories'));
+    onCreateStory(data)
+      .then(() => history.push('/stories'))
+      .catch((error) => {
+        toast.error(error.message, {
+          toastId: 'create-stories',
+          position: toast.POSITION.TOP_CENTER
+        });
+      });
   };
 
   return (
@@ -36,7 +44,9 @@ const CreateStoryComponent = ({ onCreateStory }) => {
             control={control}
             rules={{ required: 'summary missing' }}
           />
-          <ErrorMessage errors={errors} name="summary" className="form-error" />
+          <span className="form-error">
+            <ErrorMessage errors={errors} name="summary" className="form-error" />
+          </span>
         </div>
 
         <div className="form-input">
@@ -46,7 +56,9 @@ const CreateStoryComponent = ({ onCreateStory }) => {
             control={control}
             rules={{ required: 'description missing' }}
           />
-          <ErrorMessage errors={errors} name="description" className="form-error" />
+          <span className="form-error">
+            <ErrorMessage errors={errors} name="description" className="form-error" />
+          </span>
         </div>
 
         <div className="form-dropdowns">
@@ -71,7 +83,9 @@ const CreateStoryComponent = ({ onCreateStory }) => {
                   || 'Invalid type given')
               }}
             />
-            <ErrorMessage errors={errors} name="type" className="form-error" />
+            <span className="form-error">
+              <ErrorMessage errors={errors} name="type" className="form-error" />
+            </span>
           </div>
 
           <div className="form-input">
@@ -94,7 +108,9 @@ const CreateStoryComponent = ({ onCreateStory }) => {
                   || 'invalid complexity')
               }}
             />
-            <ErrorMessage errors={errors} name="type" className="form-error" />
+            <span className="form-error">
+              <ErrorMessage errors={errors} name="type" className="form-error" />
+            </span>
           </div>
         </div>
 
@@ -104,11 +120,17 @@ const CreateStoryComponent = ({ onCreateStory }) => {
             name="estimatedHrs"
             control={control}
             rules={{
-              required: 'estimated hour missing',
-              validate: (value) => parseInt(value, 10) > 0 || 'invalid estimated hour'
+              validate: (value) => {
+                if (value) {
+                  return parseInt(value, 10) > 0 || 'invalid estimated hour';
+                }
+                return null;
+              }
             }}
           />
-          <ErrorMessage errors={errors} name="estimatedHrs" className="form-error" />
+          <span className="form-error">
+            <ErrorMessage errors={errors} name="estimatedHrs" className="form-error" />
+          </span>
         </div>
 
         <div className="form-input">
@@ -122,11 +144,17 @@ const CreateStoryComponent = ({ onCreateStory }) => {
             name="cost"
             control={control}
             rules={{
-              required: 'cost associated missing',
-              validate: (value) => parseInt(value, 10) > 0 || 'invalid cost'
+              validate: (value) => {
+                if (value) {
+                  return parseInt(value, 10) > 0 || 'invalid cost';
+                }
+                return null;
+              }
             }}
           />
-          <ErrorMessage errors={errors} name="cost" className="form-error" />
+          <span className="form-error">
+            <ErrorMessage errors={errors} name="cost" className="form-error" />
+          </span>
         </div>
         <Button htmlType="submit">Create Story</Button>
       </form>

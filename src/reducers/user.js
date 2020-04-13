@@ -1,4 +1,4 @@
-import { USER_SET_CURRENT, USER_LOGOUT } from '../constant/actionTypes';
+import { USER_SET_CURRENT } from '../constant/actionTypes';
 
 const initialState = {
   isLoggedIn: false,
@@ -14,11 +14,6 @@ export default (state = initialState, action) => {
         isLoggedIn: true,
         isAdmin: action.user.role === 'Admin',
         user: { ...action.user },
-      };
-    case USER_LOGOUT:
-      return {
-        ...state,
-        ...initialState,
       };
     default: return state;
   }
