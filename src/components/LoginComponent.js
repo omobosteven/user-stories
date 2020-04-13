@@ -53,7 +53,7 @@ const LoginComponent = ({ isLoggedIn, isAdmin, onLoginUser }) => {
 LoginComponent.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
   isAdmin: PropTypes.bool.isRequired,
-  onLoginUser: PropTypes.func.isRequired,
+  onLoginUser: PropTypes.func.isRequired
 };
 
 const mapDispatchToProps = (dispatch) => ({

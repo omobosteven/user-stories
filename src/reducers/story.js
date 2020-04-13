@@ -51,9 +51,6 @@ const applyReviewStory = (state, action) => {
 export default (state = initialState, action) => {
   switch (action.type) {
     case STORY_CREATE_SUCCESS:
-      return {
-        ...state,
-      };
     case STORIES_FETCH_SUCCESS:
       return applyFetchStories(state, action);
     case STORY_FETCH_SUCCESS:

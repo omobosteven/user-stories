@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFoundComponent Test should take a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="not-found"
+  >
+    <h1>
+      404!
+    </h1>
+    <p>
+      Page not Found
+      <a
+        data-testid="home-link"
+        href="/"
+      >
+         Click here
+      </a>
+    </p>
+  </div>
+</DocumentFragment>
+`;

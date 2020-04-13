@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import { apiBaseurl } from '../utils/main';
 
 import {
@@ -28,18 +29,45 @@ export const reviewStory = (review) => ({
 });
 
 const doCreateStory = (payload) => async (dispatch) => {
-  const { data } = await apiBaseurl.post('/stories', payload);
-  dispatch(createStory(data));
+  try {
+    const { data } = await apiBaseurl.post('/stories', payload);
+    dispatch(createStory(data));
+  } catch (error) {
+    const errorData = {
+      message: error.response ? error.response.data.error : error.message
+    };
+    throw new Error(errorData.message);
+  }
 };
 
 const doFetchStories = () => async (dispatch) => {
-  const { data } = await apiBaseurl.get('/stories');
-  dispatch(fetchStories(data));
+  try {
+    const { data } = await apiBaseurl.get('/stories');
+    dispatch(fetchStories(data));
+  } catch (error) {
+    const errorData = {
+      message: error.response ? error.response.data : error.message
+    };
+    toast.error(errorData.message, {
+      toastId: 'create-stories',
+      position: toast.POSITION.TOP_CENTER
+    });
+  }
 };
 
 const doFetchStory = (payload) => async (dispatch) => {
-  const { data } = await apiBaseurl.get(`/stories/${payload}`);
-  dispatch(fetchStory(data));
+  try {
+    const { data } = await apiBaseurl.get(`/stories/${payload}`);
+    dispatch(fetchStory(data));
+  } catch (error) {
+    const errorData = {
+      message: error.response ? error.response.data : error.message
+    };
+    toast.error(errorData.message, {
+      toastId: 'fetch-story',
+      position: toast.POSITION.TOP_CENTER
+    });
+  }
 };
 
 const doReviewStory = (payload) => async (dispatch) => {
