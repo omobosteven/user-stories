@@ -1,18 +1,24 @@
 {
   "parser": "babel-eslint",
-  "extends": ["airbnb", "plugin:react/recommended"],
+  "extends": [
+    "airbnb",
+    "plugin:react/recommended",
+    "prettier",
+    "prettier/react",
+    "prettier/standard"
+  ],
   "env": {
     "node": true,
-    "es6": true,
+    "es2020": true,
     "commonjs": true,
     "browser": true,
     "jest": true
   },
   "plugins": [
-  "react-hooks"
+    "react-hooks"
   ],
   "parserOptions": {
-      "ecmaVersion": 2018,
+      "ecmaVersion": 2020,
       "sourceType": "module",
       "ecmaFeatures": {
           "jsx": true,
