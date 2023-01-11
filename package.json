@@ -55,7 +55,7 @@
     "antd": "^4.5.2",
     "axios": "^0.19.2",
     "js-cookie": "^2.2.1",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "lodash": "^4.17.19",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
